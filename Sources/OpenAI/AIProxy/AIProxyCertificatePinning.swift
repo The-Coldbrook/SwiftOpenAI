@@ -6,9 +6,6 @@
 //
 
 import Foundation
-#if canImport(OSLog)
-//import OSLog
-#endif
 //private let aiproxyLogger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "UnknownApp",
 //                                   category: "SwiftOpenAI+AIProxyCertificatePinning")
 
