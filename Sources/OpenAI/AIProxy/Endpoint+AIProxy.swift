@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import OSLog
+//import OSLog
 import DeviceCheck
 #if canImport(UIKit)
     import UIKit
@@ -18,8 +18,8 @@ import DeviceCheck
 import WatchKit
 #endif
 
-private let aiproxyLogger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "UnknownApp",
-                                   category: "SwiftOpenAI+AIProxy")
+//private let aiproxyLogger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "UnknownApp",
+//                                   category: "SwiftOpenAI+AIProxy")
 
 private let deviceCheckWarning = """
     AIProxy warning: DeviceCheck is not available on this device.
@@ -128,7 +128,7 @@ extension Endpoint {
 private func getDeviceCheckToken() async -> String? {
     guard DCDevice.current.isSupported else {
         if ProcessInfo.processInfo.environment["AIPROXY_DEVICE_CHECK_BYPASS"] == nil {
-            aiproxyLogger.warning("\(deviceCheckWarning, privacy: .public)")
+//            aiproxyLogger.warning("\(deviceCheckWarning, privacy: .public)")
         }
         return nil
     }
@@ -137,7 +137,7 @@ private func getDeviceCheckToken() async -> String? {
         let data = try await DCDevice.current.generateToken()
         return data.base64EncodedString()
     } catch {
-        aiproxyLogger.error("Could not create DeviceCheck token. Are you using an explicit bundle identifier?")
+//        aiproxyLogger.error("Could not create DeviceCheck token. Are you using an explicit bundle identifier?")
         return nil
     }
 }
